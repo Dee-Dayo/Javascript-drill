@@ -31,10 +31,14 @@ function checkHealthItems(items){
 
 
 
-function distributeBooks(members){
-    for (const value of members){
-        value.book += value.name+"'s book"
+function distributeBooks(){
+    let members = ["Emily", "Jack", "Sophia", "Daniel"];
+    let result = [];
+    for (const member of members){
+        result.push({member: member, book: `${member} book`});
     }
+
+    return result;
 }
 
 

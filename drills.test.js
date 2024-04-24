@@ -64,25 +64,12 @@ test("Filter snacks from list", ()=>{
 
 
 
-// test("Assign books to members",()=>{
-//     let member1 = {
-//         name: "Emily",
-//         book: ""
-//     }
-//     let member2 = {
-//         name: "Jack",
-//         book: ""
-//     }
-
-//     let member3 = {
-//         name: "Sophia",
-//         book: ""
-//     };
-//     let member4 = {
-//         name: "Daniel",
-//         book: ""
-//     }
-//     let members = [member1, member2, member3, member4];
-//     distributeBooks(readers)
-//     expect(members[0].book).toBe("Emily's book")
-// })
+test("distribute books to members", () => {
+    let result = [
+        { member: 'Emily', book: 'Emily book' },
+        { member: 'Jack', book: 'Jack book' },
+        { member: 'Sophia', book: 'Sophia book' },
+        { member: 'Daniel', book: 'Daniel book' }
+    ];
+    expect(distributeBooks()).toEqual(result);
+});
