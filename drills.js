@@ -25,5 +25,17 @@ function totalExpenses(expenses){
     return total
 }
 
+function checkHealthItems(items){
+    return items.filter(food => food.isHealthyItem === true);
+}
 
-module.exports = {scoresGreaterThanSeventy, addFiveToEachScores, squareEachScores, studentPlan, totalExpenses}
+
+
+function distributeBooks(members){
+    for (const value of members){
+        value.book += value.name+"'s book"
+    }
+}
+
+
+module.exports = {scoresGreaterThanSeventy, addFiveToEachScores, squareEachScores, studentPlan, totalExpenses, distributeBooks, checkHealthItems}

@@ -1,4 +1,4 @@
-let {scoresGreaterThanSeventy, addFiveToEachScores, squareEachScores, studentPlan, totalExpenses} = require("./drills.js")
+let {scoresGreaterThanSeventy, addFiveToEachScores, squareEachScores, studentPlan, totalExpenses, distributeBooks, checkHealthItems} = require("./drills.js")
 
 test("Filter test scores", ()=>{
     let testScores = [23, 40, 70, 71, 83, 86, 19]
@@ -28,7 +28,7 @@ test("Shows schedule for afternoon", ()=>{
     expect (answer).toEqual(['1:00PM', '3:00PM', "5:00PM"])
 })
 
-test("Assign book to each member", ()=>{
+test("Expense calculator", ()=>{
    let expenses = {
     groceries: 150,
     diningOut: 100,
@@ -38,9 +38,51 @@ test("Assign book to each member", ()=>{
    let davidExpenses = [expenses]
    let answer = totalExpenses(davidExpenses)
 
-   console.log(answer)
-
    expect (answer).toBe(380)
-
-
 })
+
+test("Filter snacks from list", ()=>{
+    let shoppingList = [
+        {name: 'Apples', category: 'Fruits', isHealthyItem: true},
+        {name: 'Potato Chips', category: 'Snacks', isHealthyItem: false},
+        {name: 'Carrots', category: 'Vegetable', isHealthyItem: true},
+        {name: 'Chocolate Bar', category: 'Sweets', isHealthyItem: false},
+        {name: 'Greeks Yogurt', category: 'Diary', isHealthyItem: true},
+        {name: 'Soda', category: 'Beverages', isHealthyItem: false}
+
+    ];
+
+    let given = checkHealthItems(shoppingList)
+
+    let answer = [
+        {name: 'Apples', category: 'Fruits', isHealthyItem: true},
+        {name: 'Carrots', category: 'Vegetable', isHealthyItem: true},
+        {name: 'Greeks Yogurt', category: 'Diary', isHealthyItem: true}
+    ];
+    expect(given).toEqual(answer)
+})
+
+
+
+// test("Assign books to members",()=>{
+//     let member1 = {
+//         name: "Emily",
+//         book: ""
+//     }
+//     let member2 = {
+//         name: "Jack",
+//         book: ""
+//     }
+
+//     let member3 = {
+//         name: "Sophia",
+//         book: ""
+//     };
+//     let member4 = {
+//         name: "Daniel",
+//         book: ""
+//     }
+//     let members = [member1, member2, member3, member4];
+//     distributeBooks(readers)
+//     expect(members[0].book).toBe("Emily's book")
+// })
