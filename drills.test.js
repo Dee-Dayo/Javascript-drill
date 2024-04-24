@@ -1,4 +1,4 @@
-let {scoresGreaterThanSeventy, addFiveToEachScores, squareEachScores} = require("./drills.js")
+let {scoresGreaterThanSeventy, addFiveToEachScores, squareEachScores, studentPlan, totalExpenses} = require("./drills.js")
 
 test("Filter test scores", ()=>{
     let testScores = [23, 40, 70, 71, 83, 86, 19]
@@ -22,6 +22,25 @@ test("Square of each numbers in list",()=>{
 })
 
 test("Shows schedule for afternoon", ()=>{
-    
+    let times = ["11:00AM", "1:00PM", "3:00PM", "5:00PM", "9:00AM"]
+    let answer = studentPlan(times);
+
+    expect (answer).toEqual(['1:00PM', '3:00PM', "5:00PM"])
 })
 
+test("Assign book to each member", ()=>{
+   let expenses = {
+    groceries: 150,
+    diningOut: 100,
+    transportation: 50,
+    entertainment: 80
+   }
+   let davidExpenses = [expenses]
+   let answer = totalExpenses(davidExpenses)
+
+   console.log(answer)
+
+   expect (answer).toBe(380)
+
+
+})
